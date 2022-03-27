@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class SwithName {
     public static void information(){
-        System.out.println("for Add Book click 1");
+        System.out.println("Для добавления новой книги нажмите 1");
         System.out.println("что б получить нфомацию о книге по номеру нажмите 2");
         System.out.println("что б удалить книгу по номеру нажмите 3");
         System.out.println("Что б получить книгу по еоличеству нажмите 4");

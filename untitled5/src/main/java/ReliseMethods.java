@@ -38,7 +38,7 @@ public class ReliseMethods implements Methods {
            ResultSet resultSet = statement.executeQuery(MAX_SQL_ID);
            while (resultSet.next()){
                long id = resultSet.getLong("MAX(id)");
-               String addBookSecond = " ('" + id+1 +"', '" +  numberBook + "', '" + nameBook + "', '" + authorBook +"', '" + countBook + "');";
+               String addBookSecond = " ('" + (id+1) +"', '" +  numberBook + "', '" + nameBook + "', '" + authorBook +"', '" + countBook + "');";
                Statement statement1 = getConn().createStatement();
                int resultSet1 = statement1.executeUpdate(ADD_BOOK_First + addBookSecond);
            }
