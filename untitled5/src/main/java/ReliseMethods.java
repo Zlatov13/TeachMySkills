@@ -9,6 +9,7 @@ public class ReliseMethods implements Methods {
     private final String COUNT_SQL = "SELECT * FROM bookstore where count >=";
     private final String COUNT_SUM_SQL = "SELECT count FROM bookstore;";
     private final String MAX_SQL_ID = "SELECT  MAX(id) FROM bookstore;";
+    private final String ADD_BOOK_First = "INSERT INTO `book`.`bookstore` (`id`, `number`, `name`, `author`, `count`) VALUES";
 
     public Connection getConn() {
         if (conn == null) {
@@ -32,7 +33,18 @@ public class ReliseMethods implements Methods {
         String authorBook = scan.next();
         System.out.println("Введите количество книг");
         int countBook = scan.nextInt();
-
+        try{
+            Statement statement = getConn().createStatement();
+           ResultSet resultSet = statement.executeQuery(MAX_SQL_ID);
+           while (resultSet.next()){
+               long id = resultSet.getLong("MAX(id)");
+               String addBookSecond = " ('" + id+1 +"', '" +  numberBook + "', '" + nameBook + "', '" + authorBook +"', '" + countBook + "');";
+               Statement statement1 = getConn().createStatement();
+               int resultSet1 = statement1.executeUpdate(ADD_BOOK_First + addBookSecond);
+           }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
 
     }
