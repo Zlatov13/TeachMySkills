@@ -8,6 +8,7 @@ public class ReliseMethods implements Methods {
     private final String AUTHOR_SQL = "SELECT * FROM bookstore where author =";
     private final String COUNT_SQL = "SELECT * FROM bookstore where count >=";
     private final String COUNT_SUM_SQL = "SELECT count FROM bookstore;";
+    private final String MAX_SQL_ID = "SELECT  MAX(id) FROM bookstore;";
 
     public Connection getConn() {
         if (conn == null) {
@@ -22,6 +23,17 @@ public class ReliseMethods implements Methods {
 
     @Override
     public void add() {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Введите номер книги");
+        long numberBook = scan.nextLong();
+        System.out.println("Введите наименование книги");
+        String nameBook = scan.next();
+        System.out.println("Введите автора книги");
+        String authorBook = scan.next();
+        System.out.println("Введите количество книг");
+        int countBook = scan.nextInt();
+
+
 
     }
 
