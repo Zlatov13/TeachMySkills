@@ -1,0 +1,7 @@
+
+public class Main {
+    public static void main(String[] args) {
+        SwithName.information();
+        System.out.println();
+    }
+}
