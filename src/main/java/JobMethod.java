@@ -1,5 +1,7 @@
+
 import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
+
 
 public class JobMethod implements Hanler {
     private String NEW_SQL = "INSERT INTO person.person (`id`, `login`, `password`) VALUES ";
@@ -13,6 +15,7 @@ public class JobMethod implements Hanler {
         }
         return conn;
     }
+
     @Override
     public void newLogin() {
     }
@@ -54,40 +57,41 @@ public class JobMethod implements Hanler {
     }
 
 
+    boolean react = false;
 
     @Override
-    public void entrance(String login, String password) {
+    public boolean entrance(String login, String password) {
+        String SQL_Login = "SELECT * FROM person.person WHERE login = '" + login + "';";
+        String sql2 = "SELECT * FROM person.person;";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
+            try {
 
-String SQL_Login = "SELECT * FROM person.person WHERE login = ' " + login + "';";
-try{
-    Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
-    try{
-        Statement statement = getConn().createStatement();
-        ResultSet resultSet = statement.executeQuery(SQL_Login);
-        while (resultSet.next()){
-            String passwordNow = resultSet.getString("password");
-            if(password.equals(passwordNow)){
+                Statement statement = getConn().createStatement();
+                ResultSet resultSet = statement.executeQuery(SQL_Login);
 
-
+                while (resultSet.next()) {
+                    String passwordNow = resultSet.getString("password");
+                    if (password.equals(passwordNow.trim())) {
+                        react = true;
+                    }
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
-
-
-
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
         }
-    } catch (SQLException e) {
-        e.printStackTrace();
+        return react;
     }
-} catch (ClassNotFoundException e) {
-    e.printStackTrace();
-} catch (InvocationTargetException e) {
-    e.printStackTrace();
-} catch (InstantiationException e) {
-    e.printStackTrace();
-} catch (IllegalAccessException e) {
-    e.printStackTrace();
-} catch (NoSuchMethodException e) {
-    e.printStackTrace();
-}
 
-    }
+
 }

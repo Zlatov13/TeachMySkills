@@ -21,19 +21,23 @@ public class Servlett extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
 
-
         if (buttonOne == null && buttonTwo == null) {
             ServletContext servCont = getServletContext();
             RequestDispatcher reqDisp = servCont.getRequestDispatcher(pathLogin);
             reqDisp.forward(req, resp);
+
         } else if (buttonOne != null) {
-            String loginNow = req.getParameter("login");
-            String passwordNow = req.getParameter("password");
-            String log = loginNow;
+            JobMethod jm = new JobMethod();
+            jm.entrance(login, password);
+            String log = login;
             req.setAttribute("login", log);
-            ServletContext servCont = getServletContext();
-            RequestDispatcher reqDisp = servCont.getRequestDispatcher(pathHello);
-            reqDisp.forward(req, resp);
+
+            if (jm.react == true) {
+                ServletContext servCont = getServletContext();
+                RequestDispatcher reqDisp = servCont.getRequestDispatcher(pathHello);
+                reqDisp.forward(req, resp);
+            }
+
         } else if (buttonTwo != null) {
 
             JobMethod job = new JobMethod();

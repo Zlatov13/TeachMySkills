@@ -1,10 +1,10 @@
-public interface Hanler {
+public interface Hanler  {
 
-    void newLogin(String login, String password);
+    public  void newLogin(String login, String password);
 
-    void newLogin();
+    public  void newLogin();
 
-    void entrance();
+    public  void entrance();
 
-    void entrance(String login, String password);
+    public boolean entrance(String login, String password);
 }
