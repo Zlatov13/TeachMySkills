@@ -13,6 +13,14 @@ public class JobMethod implements Hanler {
         }
         return conn;
     }
+    @Override
+    public void newLogin() {
+    }
+
+    @Override
+    public void entrance() {
+
+    }
 
     @Override
     public void newLogin(String login, String password) {
@@ -45,12 +53,41 @@ public class JobMethod implements Hanler {
         }
     }
 
-    @Override
-    public void newLogin() {
-    }
+
 
     @Override
-    public void entrance() {
+    public void entrance(String login, String password) {
+
+String SQL_Login = "SELECT * FROM person.person WHERE login = ' " + login + "';";
+try{
+    Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
+    try{
+        Statement statement = getConn().createStatement();
+        ResultSet resultSet = statement.executeQuery(SQL_Login);
+        while (resultSet.next()){
+            String passwordNow = resultSet.getString("password");
+            if(password.equals(passwordNow)){
+
+
+            }
+
+
+
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+} catch (ClassNotFoundException e) {
+    e.printStackTrace();
+} catch (InvocationTargetException e) {
+    e.printStackTrace();
+} catch (InstantiationException e) {
+    e.printStackTrace();
+} catch (IllegalAccessException e) {
+    e.printStackTrace();
+} catch (NoSuchMethodException e) {
+    e.printStackTrace();
+}
 
     }
 }

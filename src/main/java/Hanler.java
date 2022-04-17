@@ -5,4 +5,6 @@ public interface Hanler {
     void newLogin();
 
     void entrance();
+
+    void entrance(String login, String password);
 }
