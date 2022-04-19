@@ -1,11 +1,9 @@
-
-import java.lang.reflect.InvocationTargetException;
 import java.sql.*;
-
 
 public class JobMethod implements Hanler {
     private String NEW_SQL = "INSERT INTO person.person (`id`, `login`, `password`) VALUES ";
     private Connection conn = null;
+    boolean react = false;
 
     public Connection getConn() {
         try {
@@ -14,15 +12,6 @@ public class JobMethod implements Hanler {
             e.printStackTrace();
         }
         return conn;
-    }
-
-    @Override
-    public void newLogin() {
-    }
-
-    @Override
-    public void entrance() {
-
     }
 
     @Override
@@ -36,28 +25,17 @@ public class JobMethod implements Hanler {
                 ResultSet resultSet = statement.executeQuery(SQL_Max);
                 while (resultSet.next()) {
                     id = resultSet.getLong("MAX(id)");
-                    id = id + 1;
+                    id++;
                     String SQL_Two = "('" + id + "', '" + login + "', ' " + password + "');";
-                    int resultset = statement.executeUpdate(NEW_SQL + SQL_Two);
+                    statement.executeUpdate(NEW_SQL + SQL_Two);
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
-
-    boolean react = false;
 
     @Override
     public boolean entrance(String login, String password) {
@@ -79,19 +57,9 @@ public class JobMethod implements Hanler {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (NoSuchMethodException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return react;
     }
-
-
 }
