@@ -9,7 +9,7 @@
 <form action="/delete.jsp">
     <p><input type="submit" value="Удалить запись по id" name = Delete ></p>
 </form>
-<form action="/bd">
+<form action="/newName.jsp">
     <p><input type="submit" value="Внести новую запись" name = NewName></p>
 </form>
 <form action="/bd">

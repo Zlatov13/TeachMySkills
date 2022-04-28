@@ -8,7 +8,7 @@ Person search(long id) ;
 
     void delete();
 
-void newPerson();
+void newName(String string);
 
 void edit();
 

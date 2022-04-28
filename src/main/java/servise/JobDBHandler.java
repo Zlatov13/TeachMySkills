@@ -2,7 +2,6 @@ package servise;
 
 import dao.ConnectDB;
 import entity.Person;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -40,12 +39,25 @@ public class JobDBHandler implements Handler {
     }
 
     @Override
-    public void newPerson() {
-
+    public void newName(String string) {
+        long idRandom = (long) (Math.random() * 100000);
+        String sql = "INSERT INTO `user`.`user` (`id`, `name`) VALUES ('" + idRandom + "', '" + string + "');";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
+            try {
+                ConnectDB coonnect = ConnectDB.getInstance();
+                Statement statement = coonnect.connection.createStatement();
+                statement.executeUpdate(sql);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
+
 
     @Override
     public void edit() {
-
     }
 }
