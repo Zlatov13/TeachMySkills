@@ -2,6 +2,8 @@ package servise;
 
 import dao.ConnectDB;
 import entity.Person;
+
+import java.lang.reflect.InvocationTargetException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -34,8 +36,21 @@ public class JobDBHandler implements Handler {
     }
 
     @Override
-    public void delete() {
+    public void delete(long id) {
+        String SQL_DELETE = "DELETE FROM `user`.`user` WHERE (`id` = '" +id +"');";
 
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
+            try {
+                ConnectDB connect = ConnectDB.getInstance();
+                Statement statement = connect.connection.createStatement();
+                statement.executeUpdate(SQL_DELETE);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -45,8 +60,8 @@ public class JobDBHandler implements Handler {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             try {
-                ConnectDB coonnect = ConnectDB.getInstance();
-                Statement statement = coonnect.connection.createStatement();
+                ConnectDB connect = ConnectDB.getInstance();
+                Statement statement = connect.connection.createStatement();
                 statement.executeUpdate(sql);
             } catch (SQLException e) {
                 e.printStackTrace();

@@ -11,10 +11,10 @@
     <title>Title</title>
 </head>
 <body>
-<form action="/bd" >
-    <p><strong>Введите id</strong>
-        <input maxlength="25" size="40" name="number"></p>
-    <p><input type="submit" value="cyjcbv" name = "start" ></p>
+<form action="/servletDelete" >
+    <p><strong>Введите id записи которую желаете удалить</strong>
+        <input maxlength="25" size="40" name="id"></p>
+    <p><input type="submit" value="применить" name = "start" ></p>
 </form>
 </body>
 </html>
