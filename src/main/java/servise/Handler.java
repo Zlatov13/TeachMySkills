@@ -10,7 +10,7 @@ Person search(long id) ;
 
 void newName(String string);
 
-void edit();
+void edit(long id, String name);
 
 
 }

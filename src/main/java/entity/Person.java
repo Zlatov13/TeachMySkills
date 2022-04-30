@@ -1,7 +1,6 @@
 package entity;
 import servise.JobDBHandler;
 import java.util.Objects;
-
 public class Person {
     private long id;
     private String name;
@@ -29,6 +28,7 @@ public class Person {
         Person person = (Person) o;
         return id == person.id && Objects.equals(name, person.name);
     }
+
     @Override
     public int hashCode() {
         return Objects.hash(id, name);

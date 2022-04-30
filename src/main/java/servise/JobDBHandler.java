@@ -73,6 +73,18 @@ public class JobDBHandler implements Handler {
 
 
     @Override
-    public void edit() {
+    public void edit(long id, String name) {
+        String  editSQL = " UPDATE `user`.`user` SET `name` = '" + name + "' WHERE (`id` = '" +id + "');";
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
+            try{
+                ConnectDB connect = ConnectDB.getInstance();
+                Statement statement = connect.connection.createStatement();
+                statement.executeUpdate(editSQL);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
     }
-}
+}}

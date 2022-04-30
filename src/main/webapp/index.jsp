@@ -12,7 +12,7 @@
 <form action="/newName.jsp">
     <p><input type="submit" value="Внести новую запись" name = NewName></p>
 </form>
-<form action="/bd">
+<form action="/edit.jsp">
     <p><input type="submit" value="Редактировать данные по id" name = Edit ></p>
 </form>
 </body>
