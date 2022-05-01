@@ -17,7 +17,7 @@ public class ServletDelete extends HttpServlet {
         long id = Long.parseLong(req.getParameter("id"));
         method.delete(id);
         ServletContext servCont = getServletContext();
-        RequestDispatcher reqDisp = servCont.getRequestDispatcher("/deleteAnd.jsp");
+        RequestDispatcher reqDisp = servCont.getRequestDispatcher("/delete/deleteAnd.jsp");
         reqDisp.forward(req, resp);
 
     }

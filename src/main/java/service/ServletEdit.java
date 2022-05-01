@@ -21,7 +21,7 @@ public class ServletEdit extends HttpServlet {
             req.setAttribute("id", methodJob.person.getId());
             req.setAttribute("Name", methodJob.person.getName());
             ServletContext servletContext = getServletContext();
-            RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/editPersonOk.jsp");
+            RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/edit/editPersonOk.jsp");
             requestDispatcher.forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();

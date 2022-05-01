@@ -2,10 +2,7 @@ package servise;
 
 import dao.ConnectDB;
 import entity.Person;
-
-import java.lang.reflect.InvocationTargetException;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 public class JobDBHandler implements Handler {
@@ -15,37 +12,31 @@ public class JobDBHandler implements Handler {
     public Person search(long id) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
-            try {
-                ConnectDB connect = ConnectDB.getInstance();
-                Statement statement = connect.connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(SQL_SEARCH_WRITE + id);
-                while (resultSet.next()) {
-                    long idSearch = resultSet.getLong("id");
-                    String name = resultSet.getString("name");
-                    person.setName(name);
-                    person.setId(idSearch);
-                }
-            } catch (SQLException e) {
-                e.printStackTrace();
+            ConnectDB connect = ConnectDB.getInstance();
+            Statement statement = connect.connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(SQL_SEARCH_WRITE + id);
+            while (resultSet.next()) {
+                long idSearch = resultSet.getLong("id");
+                String name = resultSet.getString("name");
+                person.setName(name);
+                person.setId(idSearch);
             }
         } catch (Exception e) {
             System.out.println(e);
         }
         return person;
-
     }
 
     @Override
     public void delete(long id) {
-        String SQL_DELETE = "DELETE FROM `user`.`user` WHERE (`id` = '" +id +"');";
-
-        try{
+        String SQL_DELETE = "DELETE FROM `user`.`user` WHERE (`id` = '" + id + "');";
+        try {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
             try {
                 ConnectDB connect = ConnectDB.getInstance();
                 Statement statement = connect.connection.createStatement();
                 statement.executeUpdate(SQL_DELETE);
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         } catch (Exception e) {
@@ -59,32 +50,24 @@ public class JobDBHandler implements Handler {
         String sql = "INSERT INTO `user`.`user` (`id`, `name`) VALUES ('" + idRandom + "', '" + string + "');";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
-            try {
-                ConnectDB connect = ConnectDB.getInstance();
-                Statement statement = connect.connection.createStatement();
-                statement.executeUpdate(sql);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            ConnectDB connect = ConnectDB.getInstance();
+            Statement statement = connect.connection.createStatement();
+            statement.executeUpdate(sql);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-
     @Override
     public void edit(long id, String name) {
-        String  editSQL = " UPDATE `user`.`user` SET `name` = '" + name + "' WHERE (`id` = '" +id + "');";
-        try{
+        String editSQL = " UPDATE `user`.`user` SET `name` = '" + name + "' WHERE (`id` = '" + id + "');";
+        try {
             Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
-            try{
-                ConnectDB connect = ConnectDB.getInstance();
-                Statement statement = connect.connection.createStatement();
-                statement.executeUpdate(editSQL);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            ConnectDB connect = ConnectDB.getInstance();
+            Statement statement = connect.connection.createStatement();
+            statement.executeUpdate(editSQL);
         } catch (Exception e) {
             e.printStackTrace();
+        }
     }
-}}
+}

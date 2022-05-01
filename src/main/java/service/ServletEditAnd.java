@@ -18,7 +18,7 @@ public class ServletEditAnd extends HttpServlet {
         String newNameEdit = req.getParameter("name");
         methodEdit.edit(nowId, newNameEdit);
         ServletContext servCont = getServletContext();
-        RequestDispatcher requestDispatcher = servCont.getRequestDispatcher("/editAnd.jsp");
+        RequestDispatcher requestDispatcher = servCont.getRequestDispatcher("/edit/editAnd.jsp");
         requestDispatcher.forward(req, resp);
     }
 }

@@ -1,7 +1,6 @@
 package service;
 
 import servise.JobDBHandler;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -19,7 +18,7 @@ public class ServletNewName extends HttpServlet {
         JobDBHandler job = new JobDBHandler();
         job.newName(name);
         ServletContext servCont = getServletContext();
-        RequestDispatcher reqDisp = servCont.getRequestDispatcher("/newNameResult.jsp");
+        RequestDispatcher reqDisp = servCont.getRequestDispatcher("/newName/newNameResult.jsp");
         reqDisp.forward(req, resp);
 
     }

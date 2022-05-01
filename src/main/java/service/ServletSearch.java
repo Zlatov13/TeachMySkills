@@ -1,7 +1,6 @@
 package service;
 
 import servise.JobDBHandler;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -13,7 +12,6 @@ import java.io.IOException;
 
 @WebServlet(urlPatterns = "/servletSearch")
 public class ServletSearch extends HttpServlet {
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
         try {
@@ -24,7 +22,7 @@ public class ServletSearch extends HttpServlet {
             req.setAttribute("id", methodJob.person.getId());
             req.setAttribute("Name", methodJob.person.getName());
             ServletContext servletContext = getServletContext();
-            RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/person.jsp");
+            RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/search/person.jsp");
             requestDispatcher.forward(req, resp);
         } catch (ServletException e) {
             e.printStackTrace();
