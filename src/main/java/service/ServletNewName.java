@@ -21,5 +21,6 @@ public class ServletNewName extends HttpServlet {
         RequestDispatcher reqDisp = servCont.getRequestDispatcher("/newName/newNameResult.jsp");
         reqDisp.forward(req, resp);
 
+
     }
 }
