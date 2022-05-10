@@ -54,9 +54,9 @@ public class JobDBHandler implements Handler {
     @Override
     public void newName(String string) {
         long idRandom = (long) (Math.random() * 100000);
-       Person pers = new Person();
-       pers.setName(string);
-       pers.setId(idRandom);
+        Person pers = new Person();
+        pers.setName(string);
+        pers.setId(idRandom);
         ConnectHibernate.getInstance();
         Session sessCreat = ConnectHibernate.getSessionFactory().openSession();
         Transaction trans = sessCreat.beginTransaction();
