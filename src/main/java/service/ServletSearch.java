@@ -1,6 +1,7 @@
 package service;
 
-import servise.JobDBHandler;
+import controller.JobDBHandler;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;

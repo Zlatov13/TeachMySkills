@@ -3,9 +3,9 @@
 <head>
     <title>Good</title>
 </head>
-<body>
+<body style= "background: url(/images/mars.jpg)">
 <form action="/index.jsp">
-    <p><strong>Новая запись внесена!</strong>
+    <p style="color:#ffff00"><strong>Новая запись внесена!</strong>
     <p><input type="submit" value="Вернутся на начальную страницу" name="start"></p>
 </form>
 </body>

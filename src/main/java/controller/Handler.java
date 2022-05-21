@@ -1,4 +1,4 @@
-package servise;
+package controller;
 
 import entity.Person;
 public interface Handler {

@@ -3,9 +3,9 @@
 <head>
     <title>Title</title>
 </head>
-<body>
+<body style= "background: url(/images/galaktika.jpg)">
 <form action="/index.jsp">
-    <p><strong>Запись изменена!</strong>
+    <p style="color:#ffff00"><strong>Запись изменена!</strong>
     <p><input type="submit" value="Вернутся на начальную страницу" name="start"></p>
 </form>
 </body>

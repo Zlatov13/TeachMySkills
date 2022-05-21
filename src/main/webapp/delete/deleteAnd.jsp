@@ -2,9 +2,9 @@
 <html>
 <head>
 </head>
-<body>
+<body style="background: url(/images/zv.jpg)">
 <form action="/index.jsp">
-    <p><strong>Запись удалена!</strong>
+    <p style="color:#ffff00"><strong>Запись удалена!</strong>
     <p><input type="submit" value="Вернутся на начальную страницу" name="start"></p>
 </form>
 </body>
