@@ -27,7 +27,7 @@ public class ServletEdit extends HttpServlet {
         }
             else {
                 ServletContext servletContext = getServletContext();
-                RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/index.jsp");
+                RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/notEntity/notEntity.jsp");
                 requestDispatcher.forward(req, resp);
             }} catch (ServletException e) {
             e.printStackTrace();

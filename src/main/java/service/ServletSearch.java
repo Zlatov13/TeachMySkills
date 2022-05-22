@@ -1,5 +1,4 @@
 package service;
-
 import controller.JobDBHandler;
 
 import javax.servlet.RequestDispatcher;
@@ -20,11 +19,17 @@ public class ServletSearch extends HttpServlet {
             String id = req.getParameter("id");
             long idLong = Long.parseLong(id);
             methodJob.search(idLong);
-            req.setAttribute("id", methodJob.person.getId());
-            req.setAttribute("Name", methodJob.person.getName());
-            ServletContext servletContext = getServletContext();
-            RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/search/person.jsp");
-            requestDispatcher.forward(req, resp);
+            if (methodJob.person.getName() != null) {
+                req.setAttribute("id", methodJob.person.getId());
+                req.setAttribute("Name", methodJob.person.getName());
+                ServletContext servletContext = getServletContext();
+                RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/search/person.jsp");
+                requestDispatcher.forward(req, resp);
+            } else {
+                ServletContext servletContext = getServletContext();
+                RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/notEntity/notEntity.jsp");
+                requestDispatcher.forward(req, resp);
+            }
         } catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
