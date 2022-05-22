@@ -4,9 +4,9 @@
 <head>
     <title>Result</title>
 </head>
-<body style= "background: url(/images/kosm.jpg)">
+<body >
 <form action = "/index.jsp">
-<p style="color:#ffff00"><strong> По данному id найдены данные:</strong>
+<p ><strong> По данному id найдены данные:</strong>
     id: ${id}
     Name: ${Name}
     <p><input type="submit" value="Вернутся на начальную страницу" name="start"></p>

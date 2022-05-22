@@ -18,16 +18,23 @@ public class ServletEdit extends HttpServlet {
             String id = req.getParameter("id");
             long idLong = Long.parseLong(id);
             methodJob.search(idLong);
+            if(methodJob.person.getName()!=null){
             req.setAttribute("id", methodJob.person.getId());
             req.setAttribute("Name", methodJob.person.getName());
             ServletContext servletContext = getServletContext();
             RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/edit/editPersonOk.jsp");
             requestDispatcher.forward(req, resp);
-        } catch (ServletException e) {
+        }
+            else {
+                ServletContext servletContext = getServletContext();
+                RequestDispatcher requestDispatcher = servletContext.getRequestDispatcher("/index.jsp");
+                requestDispatcher.forward(req, resp);
+            }} catch (ServletException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }}
+
     }
-}
+
 

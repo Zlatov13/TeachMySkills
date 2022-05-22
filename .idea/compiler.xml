@@ -7,8 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="DzServletBD" />
-        <module name="TeachMySkills-NewServletPersonHibernateBD" />
         <module name="ServeltPersonBD" />
+        <module name="TeachMySkills-NewServletPersonHibernateBD" />
+        <module name="ServeltPersonBDNotImaages" />
       </profile>
     </annotationProcessing>
   </component>

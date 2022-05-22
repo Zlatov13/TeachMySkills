@@ -4,7 +4,7 @@
 </head>
 <body>
 <form action="/index.jsp">
-    <p><strong>Запись удалена!</strong>
+    <p ><strong>Запись удалена!</strong>
     <p><input type="submit" value="Вернутся на начальную страницу" name="start"></p>
 </form>
 </body>

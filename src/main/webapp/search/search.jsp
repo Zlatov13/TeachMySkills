@@ -5,9 +5,9 @@
 <head>
     <title>Search</title>
 </head>
-<body style= "background: url(/images/kosm.jpg)">
+<body >
 <form action="/servletSearch">
-    <p style="color:#ffff00"><strong>Введите id</strong>
+    <p ><strong>Введите id</strong>
         <input maxlength="25" size="40" name="id"></p>
     <p><input type="submit" value="Применить" name="start"></p>
 </form>
