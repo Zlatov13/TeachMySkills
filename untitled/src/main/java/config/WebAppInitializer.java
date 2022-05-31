@@ -5,7 +5,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 /**
  * @author imssbora
  */
-public class MyWebAppInitializer extends 
+public class WebAppInitializer extends
    AbstractAnnotationConfigDispatcherServletInitializer{
 
    @Override

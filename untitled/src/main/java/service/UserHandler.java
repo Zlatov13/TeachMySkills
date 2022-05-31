@@ -30,7 +30,7 @@ public class UserHandler implements Handler {
 
     @Transactional
     @Override
-    public void newName(String newName) {
+    public void create(String newName) {
         long idRandom = (long) (Math.random() * 100000);
         user.setId(idRandom);
         user.setName(newName);
