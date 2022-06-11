@@ -75,5 +75,6 @@ public class WebController {
     String name = request.getParameter("name");
     Long id = Long.parseLong(request.getParameter("id"));
     handlerUser.editUserById(id, name);
+    return "";
 }
 }
