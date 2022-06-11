@@ -1,5 +1,8 @@
 package com.example.demo.entity;
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Repository;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;

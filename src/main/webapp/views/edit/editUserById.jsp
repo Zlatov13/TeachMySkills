@@ -7,7 +7,7 @@
 </head>
 <body >
 <p ><strong> По данному id найдены данные:</strong>
-<form action="/editUser">
+<form action="/change">
     <p> id: <input value="${id}" name="id"></p>
     <p > Name:<input value="${Name}" name="namePerson"></p>
     <p ><strong>введите новое имя</strong>

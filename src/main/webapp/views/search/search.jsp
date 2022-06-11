@@ -6,7 +6,7 @@
   <title>Search</title>
 </head>
 <body >
-<form action="/servletSearch">
+<form action="/searchUserById">
   <p ><strong>Введите id</strong>
     <input maxlength="25" size="40" name="id"></p>
   <p><input type="submit" value="Применить" name="start"></p>
