@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page isELIgnored="false" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
 <html>
 <head>
@@ -7,9 +8,9 @@
 </head>
 <body >
 <form action="/searchUserById">
-  <p ><strong>Введите id</strong>
+  <p ><strong><spring:message code="enter.id"/></strong>
     <input maxlength="25" size="40" name="id"></p>
-  <p><input type="submit" value="Применить" name="start"></p>
+  <p><input type="submit" value="<spring:message code = "apply"/>" name="start"></p>
 </form>
 </body>
 </html>

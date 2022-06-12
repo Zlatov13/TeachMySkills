@@ -1,7 +1,6 @@
-package com.example.demo.servise;
+package com.example.springDataJPA.servise;
 
-import com.example.demo.entity.User;
-import org.springframework.web.servlet.ModelAndView;
+import com.example.springDataJPA.entity.User;
 
 public interface Handler {
 

@@ -1,6 +1,7 @@
-package com.example.demo.servise;
+package com.example.springDataJPA.servise;
 
-import com.example.demo.entity.User;
+import com.example.springDataJPA.dao.HandlerCrudRepository;
+import com.example.springDataJPA.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
