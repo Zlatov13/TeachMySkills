@@ -3,6 +3,7 @@ package com.example.demo.servise;
 import com.example.demo.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import javax.transaction.Transactional;
 import java.util.Optional;
 
@@ -34,14 +35,14 @@ public class HandlerUser implements Handler {
 
     @Override
     public void deleteUser(long id) {
-handlerCrudRepository.deleteById(id);
+        handlerCrudRepository.deleteById(id);
     }
 
     @Override
     public void editUserById(long id, String name) {
         user.setId(id);
         user.setName(name);
-
+        handlerCrudRepository.save(user);
 
     }
 }

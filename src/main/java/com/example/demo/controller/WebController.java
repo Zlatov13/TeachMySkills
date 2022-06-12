@@ -73,8 +73,10 @@ public class WebController {
 @RequestMapping("/change")
     public String changeEditUser(HttpServletRequest request){
     String name = request.getParameter("name");
+    System.out.println(name);
     Long id = Long.parseLong(request.getParameter("id"));
+    System.out.println(id);
     handlerUser.editUserById(id, name);
-    return "";
+    return "edit/editComplited";
 }
 }
