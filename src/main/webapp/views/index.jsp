@@ -8,7 +8,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body >
-<p ><strong> <spring:message code="select.the.desired.action"/> </strong>
+<p ><strong> <spring:message code="select.the.desired.action"/>
+    <a class="dropdown-item" href="?lang=en"><img src="/views/icons/usa.png"></a>
+    <a class="dropdown-item" href="?lang=ru"><img src="/views/icons/rus.png"></a>
+ </strong>
 <form action="/search">
     <p><input type="submit" value="<spring:message code = "search.user.by.id"/>" name=Search></p>
 </form>
@@ -21,15 +24,5 @@
 <form action="/edit">
     <p><input type="submit" value="<spring:message code="edit.user.by.id"/>" name=Edit></p>
 </form>
-
-<div class="dropdown">
-    <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><spring:message
-            code="app.lang.title"/></button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="?lang=en"><spring:message code="app.lang.english"/></a>
-        <a class="dropdown-item" href="?lang=ru"><spring:message code="app.lang.russian"/></a>
-    </div>
-</div>
 </body>
 </html>
